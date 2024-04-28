@@ -24,7 +24,7 @@ body{
     padding: 30px;
     margin: 0 15px;
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(9px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
@@ -87,22 +87,13 @@ form .fields .input-field{
 ::placeholder {
     color: #FFF;
 }
-  
-.input-field input :focus,
-.input-field select:focus{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+
+.input-field select {
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.input-field select,
-.input-field input[type="date"]{
-    color: #707070;
-}
-
-.input-field input[type="date"]:valid{
-    color: #333;
-}
-
-.container form button {
+.container form input[type="submit"] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,21 +108,15 @@ form .fields .input-field{
     background-color: #4070f4;
     transition: all 0.3s linear;
     cursor: pointer;
-}
-
-.container form .btnText{
     font-size: 14px;
     font-weight: 400;
 }
 
-form button:hover{
+
+.container form input[type="submit"]:hover{
     background-color: #265df2;
 }
 
-form .buttons{
-    display: flex;
-    align-items: center;
-}
 
 @media (max-width: 750px) {
     .container form{

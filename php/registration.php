@@ -1,27 +1,29 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstName = $lastName = $grNo = $enrollmentNo = $department = $semester = $program = $email = $password = $confirmPassword = "";
+    $First_Name = $_POST["First_Name"];
+    $Last_Name = $_POST["Last_Name"];
+    $Enrollment_No = $_POST["Enrollment_No"];
+    $GR_No = $_POST["GR_No"];
+    $Mobile_No = $_POST["Mobile_No"];
+    $Institute_Mail_ID = $_POST["Institue_Mail_ID"];
+    $Secondary_Mail_ID = $_POST["Secondary_Mail_ID"];
+    $Department = $_POST["Department"];
+    $Program = $_POST["Program"];
+    $Semester = $_POST["Semester"];
+    $Password = $_POST["Password"];
+    $Confirm_Password = $_POST["Confirm_Password"];
 
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-    if (empty($_POST["firstName"])) {
-        $firstNameErr = "First name is required";
-    } else {
-        $firstName = test_input($_POST["firstName"]);
-        if (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
-            $firstNameErr = "Only letters and white space allowed";
-        }
-    }
-
-    if (empty($firstNameErr) && empty($lastNameErr) && empty($grNoErr) && empty($enrollmentNoErr) && empty($departmentErr) && empty($semesterErr) && empty($programErr) && empty($emailErr) && empty($passwordErr) && empty($confirmPasswordErr)) {
-        header("Location: registration_success.php");
-        exit();
-    }
-}
-
+    echo "First Name: " . $First_Name . "<br>";
+    echo "Last Name: " . $Last_Name . "<br>";
+    echo "Enrollment No: " . $Enrollment_No . "<br>";
+    echo "GR No: " . $GR_No . "<br>";
+    echo "Mobile No: " . $Mobile_No . "<br>";
+    echo "Institute Email: " . $Institute_Mail_ID . "<br>";
+    echo "Secondary Email: " . $Secondary_Mail_ID . "<br>";
+    echo "Department: " . $Department . "<br>";
+    echo "Program: " . $Program . "<br>";
+    echo "Semester: " . $Semester . "<br>";
+    echo "Password: " . $Password . "<br>";
+    echo "Confirm Password: " . $Confirm_Password . "<br>";
+} 
 ?>
