@@ -82,39 +82,42 @@ form .fields .input-field{
     margin: 8px 0;
     background-color: transparent;
     border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 ::placeholder {
     color: #FFF;
 }
 
-.input-field select {
+.input-field option {
     color: #FFF;
     background-color: rgba(0, 0, 0, 0.6);
 }
 
 .container form input[type="submit"] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 45px;
-    max-width: 200px;
-    width: 100%;
-    border: none;
-    outline: none;
-    color: #fff;
-    border-radius: 5px;
-    margin: 25px 0;
-    background-color: #4070f4;
-    transition: all 0.3s linear;
+
+
+    border-radius: 50px;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 400;
+    background-color: #FFF;
 }
 
 
 .container form input[type="submit"]:hover{
-    background-color: #265df2;
+    border: 1px solid blue;
+    background: blue;
+    transition: 0.5s;
+    font-weight: bold;
+    color: #FFF;
 }
 
 
