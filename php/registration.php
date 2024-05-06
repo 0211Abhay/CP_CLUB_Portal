@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Enrollment_No = $_POST["Enrollment_No"];
     $GR_No = $_POST["GR_No"];
     $Mobile_No = $_POST["Mobile_No"];
-    $Institute_Mail_ID = $_POST["Institue_Mail_ID"];
+    $Institute_Mail_ID = $_POST["Institute_Mail_ID"];
     $Secondary_Mail_ID = $_POST["Secondary_Mail_ID"];
     $Department = $_POST["Department"];
     $Program = $_POST["Program"];
