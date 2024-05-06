@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded" , function(event) {
         if (Validate_Form()) {
             var formData = new FormData(form);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "../php/registration.php", true);
+            xhr.open("POST", "../includes/signup.inc.php", true);
             xhr.onload = function() {
                 if (xhr.status == 200) {
                     console.log(xhr.responseText);

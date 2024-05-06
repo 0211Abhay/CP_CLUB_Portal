@@ -1,3 +1,8 @@
+<?php
+    require_once '../includes/config_session.inc.php';
+    require_once '../includes/signup_view.inc.php';
+    require_once '../includes/login_view.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +17,11 @@
     <div class="container">
         <header>Registration</header>
 
-        <form method="post"  id="Registration_Form" action="../php/registration.php">
-            <div class="form">
+        <form method="post"  id="Registration_Form" action="../includes/signup.inc.php">
+        <?php
+        signup_input();
+        ?>
+            <!-- <div class="form">
                 <div class="details personal">
 
                     <div class="fields">
@@ -101,12 +109,15 @@
                             <input type="password" id="Confirm_Password"  name="Confirm_Password" placeholder="Confirm Your Password">
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <input type="submit" value="Register" class="btn" id="registerBtn">
                     
                 </div>
             </div>
+            <?php
+        check_signup_error(); 
+    ?>
         </form>
     </div>
 
