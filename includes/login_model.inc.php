@@ -1,9 +1,9 @@
 <?php
     declare(strict_types=1);
-    function get_user(object $pdo, string $username){
-        $query = "SELECT * FROM users where username = :username;";
+    function get_user(object $pdo, string $email){
+        $query = "SELECT * FROM users where email = :email;";
         $stmt = $pdo->prepare($query);
-        $stmt->bindParam(":username",$username);
+        $stmt->bindParam(":email",$email);
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);

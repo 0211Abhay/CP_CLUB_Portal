@@ -1,3 +1,9 @@
+<?php
+    require_once '../includes/config_session.inc.php';
+    require_once '../includes/signup_view.inc.php';
+    require_once '../includes/login_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,16 +17,19 @@
 </head>
 
 <body>
+    <?php
+    check_login_error();
+    ?>
     <div class="wrapper">
-        <form action="">
+        <form action="../includes/login.inc.php" method="post">
             <h1>Login</h1>
             <div class="input-box">
                 <label for="Email_Address">Email Address</label>
-                <input type="text" placeholder="Email Address" id="Email_Address" required>
+                <input type="text" placeholder="Email Address" name="Email_Address" id="Email_Address" required>
             </div>
             <div class="input-box">
                 <label for="Password">Password</label>
-                <input type="password" placeholder="Password" id="Password" required>
+                <input type="password" placeholder="Password" name="Password" id="Password" required>
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember Me</label>

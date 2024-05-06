@@ -1,6 +1,6 @@
 <?php
     $host = 'localhost';
-    $dbname = 'myfirstdatabase';
+    $dbname = 'final_database_iwt_project';
     $dbusername = 'root';
     $dbpassword = '';
 
