@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quiz - CP Club</title>
+    <link rel="stylesheet" href="../css/Quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info"><b>1.</b> Your Name Shown on the leader board basis of your no. of correct answers.</div>
+            <div class="info"><b>2.</b> If two players have same points then time taken to select the correct answer will be taken under considerataion.</div>
+        </div>
+        <div class="buttons">
+            <a href="https://www.youtube.com/watch?v=PBcqGxrr9g8"><button class="quit">Exit Quiz</button></a>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Taken</div>
+                <div class="timer_sec">00</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text"></div>
+            <div class="option_list"></div>
+        </section>
+        <footer>
+            <div class="total_que"></div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
+
+    <div class="result_box">
+        <div class="complete_text"><b>You've completed the Today's Quiz!</b></div>
+        <div class="score_text"></div>
+        <div class="buttons">
+            <a href="https://www.youtube.com/watch?v=PBcqGxrr9g8"><button class="quit">Quit Quiz</button></a>
+        </div>
+    </div>
+
+    <script src="../js/Questions.js"></script>
+    <script src="../js/Quiz.js"></script>
+</body>
+</html>
