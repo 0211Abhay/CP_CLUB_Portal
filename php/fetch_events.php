@@ -1,12 +1,14 @@
 <?php
-// fetch_events.php
-
 // Include the database connection file
 include '../includes/dbh.inc.php';
 
+// Get current date
+$current_date = date('Y-m-d');
+
 // Query to fetch events from database
-$query = "SELECT * FROM events";
+$query = "SELECT * FROM events WHERE date >= :current_date";
 $statement = $pdo->prepare($query);
+$statement->bindParam(':current_date', $current_date);
 $statement->execute();
 $events = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,6 +27,6 @@ if ($events) {
         echo '</div>'; // Close event-card
     }
 } else {
-    echo '<p>No events found.</p>';
+    echo '<p>No upcoming events found.</p>';
 }
 ?>
