@@ -26,6 +26,12 @@
                 <label for="Email_Address">Email Address</label>
                 <input type="text" placeholder="Email Address" name="Email_Address" id="Email_Address" required>
             </div>
+            <?php
+            if (isset($_COOKIE['remember_user'])) {
+                $remembered_email = $_COOKIE['remember_user'];
+                echo '<script>document.getElementById("Email_Address").value = "' . $remembered_email . '";</script>';
+            }
+            ?>
             <div class="input-box">
                 <label for="Password">Password</label>
                 <input type="password" placeholder="Password" name="Password" id="Password" required>
