@@ -37,11 +37,11 @@
             $_SESSION["user_email"] = htmlspecialchars($result["inst_email"]);
             $_SESSION["last_regeneration"] = time();
             // After successful login
-if (is_admin($result)) {
-    header("Location: ../admin_dashboard.php"); // Redirect to admin dashboard
-} else {
-    header("Location: ../HTML/Dashboard.html"); // Redirect to user dashboard
-}
+            if (is_admin($result)) {
+                header("Location: ../admin_dashboard.php"); // Redirect to admin dashboard
+            } else {
+                header("Location: ../HTML/Dashboard.html"); // Redirect to user dashboard
+            }
 
 
             $pdo = null;
