@@ -45,7 +45,7 @@
                 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // Cookie expires in 30 days
             }
 
-
+            set_login_record($pdo,$email);
 
             // After successful login
             if (is_admin($result)) {

@@ -27,5 +27,9 @@
     function is_admin(array $result) {
         return ($result['role'] === 'admin');
     }
-    
+
+    function set_login_record(object $pdo, string $email)
+    {
+        insert_login_record($pdo,$email);
+    }
 ?>
