@@ -36,6 +36,17 @@
             $_SESSION["user_id"] = $result["grno"];
             $_SESSION["user_email"] = htmlspecialchars($result["inst_email"]);
             $_SESSION["last_regeneration"] = time();
+
+                        // After successful login
+            if (isset($_POST['remember_me']) && $_POST['remember_me'] == 'on') {
+                // Create a cookie to remember the user
+                $cookie_name = "remember_user";
+                $cookie_value = $email; // Assuming $email contains the user's email address
+                setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // Cookie expires in 30 days
+            }
+
+
+
             // After successful login
             if (is_admin($result)) {
                 header("Location: ../admin_dashboard.php"); // Redirect to admin dashboard

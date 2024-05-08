@@ -31,7 +31,7 @@
                 <input type="password" placeholder="Password" name="Password" id="Password" required>
             </div>
             <div class="remember-forgot">
-                <label><input type="checkbox">Remember Me</label>
+                <label><input name="remember_me" type="checkbox">Remember Me</label>
                 <a href="#">Forgot Password</a>
             </div>
             <center><input type="submit" class="btn" value="Login"></center>
