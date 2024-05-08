@@ -17,7 +17,7 @@
             if(is_email_wrong($result)){
                 $errors["login_incorrect"] = "Incorrect Login info!";
             }
-            if(!is_email_wrong($result) && is_password_wrong($pwd,$result["pwd"])){
+            if(!is_email_wrong($result) && is_password_wrong($pwd,$result["pass"])){
                 
             }
             require_once 'config_session.inc.php';
@@ -25,18 +25,24 @@
             if($errors)
             {
                 $_SESSION["errors_login"] = $errors;
-                header("Location: ../index.php");
+                header("Location: ../php/index.php");
                 die();
             }
 
             $newSessionId = session_create_id();
-            $sessionID = $newSessionId . "_" . $result["id"];
+            $sessionID = $newSessionId . "_" . $result["grno"];
             session_id($newSessionId);
 
-            $_SESSION["user_id"] = $result["id"];
-            $_SESSION["user_email"] = htmlspecialchars($result["email"]);
+            $_SESSION["user_id"] = $result["grno"];
+            $_SESSION["user_email"] = htmlspecialchars($result["inst_email"]);
             $_SESSION["last_regeneration"] = time();
-            header("Location: ../index.php?login=success");
+            // After successful login
+if (is_admin($result)) {
+    header("Location: ../admin_dashboard.php"); // Redirect to admin dashboard
+} else {
+    header("Location: ../HTML/Dashboard.html"); // Redirect to user dashboard
+}
+
 
             $pdo = null;
             $stmt = null;
@@ -45,7 +51,7 @@
             die("Query Failed : ". $e->getMessage());
         }
     }else{
-        header("Location: ../index.php");
+        header("Location: ../php/index.php");
         die();
     }
 ?>

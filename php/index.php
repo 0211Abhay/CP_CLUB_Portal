@@ -1,6 +1,5 @@
 <?php
     require_once '../includes/config_session.inc.php';
-    require_once '../includes/signup_view.inc.php';
     require_once '../includes/login_view.inc.php';
 ?>
 
@@ -37,7 +36,7 @@
             </div>
             <center><input type="submit" class="btn" value="Login"></center>
             <div class="register-link">
-                <p>Don't have an account? <a href="./registration.html" target="_blank">Register</a></p>
+                <p>Don't have an account? <a href="../php/index_reg.php" target="_blank">Register</a></p>
             </div>
         </form>
     </div>

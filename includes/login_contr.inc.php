@@ -23,4 +23,9 @@
             return false;
         }
     }
+
+    function is_admin(array $result) {
+        return ($result['role'] === 'admin');
+    }
+    
 ?>

@@ -12,8 +12,8 @@
             unset($_SESSION["errors_login"]);
         }
         else if(isset($_GET["login"]) && $_GET["login"] === "success"){
-            echo "<br>";
-            echo '<p class="form-error">login Successful</p>';
+            header("Location: ../HTML/Dashboard.html");
+die();
         }
     }
 ?>
