@@ -6,11 +6,13 @@ include '../includes/dbh.inc.php';
 $event_id = $_POST['event_id'];
 $user_email = $_POST['user_email'];
 
-// Insert registration into database
+if(!empty($event_id) && !empty($user_email)){
+    // Insert registration into database
 $query = "INSERT INTO event_registrations (event_id, user_email) VALUES (:event_id, :user_email)";
 $statement = $pdo->prepare($query);
 $statement->bindParam(':event_id', $event_id);
 $statement->bindParam(':user_email', $user_email);
+}
 
 if ($statement->execute()) {
     // Registration successful
