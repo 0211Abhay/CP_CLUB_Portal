@@ -49,7 +49,7 @@
 
             // After successful login
             if (is_admin($result)) {
-                header("Location: ../admin_dashboard.php"); // Redirect to admin dashboard
+                header("Location: ../HTML/Admin_Dashboard.html"); // Redirect to admin dashboard
             } else {
                 header("Location: ../HTML/Dashboard.html"); // Redirect to user dashboard
             }
