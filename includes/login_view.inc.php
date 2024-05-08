@@ -3,7 +3,6 @@
     
 
     function check_login_error(){
-        
         if(isset($_SESSION['errors_login'])){
             $errors = $_SESSION["errors_login"];
             echo "<br>";
@@ -15,7 +14,7 @@
         }
         else if(isset($_GET["login"]) && $_GET["login"] === "success"){
             header("Location: ../HTML/Dashboard.html");
-die();
+        die();
         }
     }
 ?>
