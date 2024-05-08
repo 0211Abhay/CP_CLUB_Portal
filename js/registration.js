@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded" , function(event) {
 
         var fname = true;
         var lname = true;
-        var rollno = true;
+        var enrollment_no = true;
         var grno = true;
         var mobileno = true;
         var instituteid = true;
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded" , function(event) {
 
         if (!this.Enrollment_No.match(enrollmentRegex)) {
             alert('Enrollment No should only contain 11 digits');
-            rollno = false;
+            enrollment_no = false;
         }
 
         if (!this.GR_No.match(grNoRegex)) {
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded" , function(event) {
             confirmpassword = false;
         }
 
-        var result = fname && lname && !(this.First_Name === this.Last_Name) && rollno && grno && mobileno && instituteid && secondaryid && password && confirmpassword ;
+        var result = fname && lname && !(this.First_Name === this.Last_Name) && enrollment_no && grno && mobileno && instituteid && secondaryid && password && confirmpassword ;
         return result;
     }
 
@@ -159,10 +159,17 @@ document.addEventListener("DOMContentLoaded" , function(event) {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "../includes/signup.inc.php", true);
             xhr.onload = function() {
-                if (xhr.status == 200) {
-                    console.log(xhr.responseText);
-                }
-            };
+    if (xhr.status == 200) {
+        var response = JSON.parse(xhr.responseText);
+        if (response.success) {
+            window.location.href = response.redirect_url;
+        } else {
+            console.log("Registration failed:", response.errors);
+        }
+    }
+};
+
+            
             xhr.send(formData);
         }
     }
