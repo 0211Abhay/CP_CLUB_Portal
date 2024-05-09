@@ -44,7 +44,7 @@
                 $cookie_value = $email; // Assuming $email contains the user's email address
                 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // Cookie expires in 30 days
             }
-
+            setcookie("user_id",$result["grno"],time() + (86400 * 30), "/");
             set_login_record($pdo,$email);
 
             // After successful login
