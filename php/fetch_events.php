@@ -23,6 +23,14 @@ if ($events) {
         echo '<p><strong>Date:</strong> ' . $event['date'] . '</p>';
         echo '<p><strong>Location:</strong> ' . $event['location'] . '</p>';
         echo '<p><strong>Description:</strong> ' . $event['description'] . '</p>';
+
+        // Add a button to generate certificates for this event
+        echo '<form action="../php/generate_certificates.php" method="post">';
+        echo '<input type="hidden" name="event_id" value="' . $event['id'] . '">';
+        echo '<input type="hidden" name="event_name" value="' . $event['title'] . '">';
+        echo '<button type="submit" name="generate_certificate">Generate Certificates</button>';
+        echo '</form>';
+
         echo '</div>'; // Close event-details
         echo '</div>'; // Close event-card
     }
