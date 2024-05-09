@@ -1,3 +1,6 @@
+<?php 
+    require("../includes/config_session.inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Quiz - CP Club</title>
-    <link rel="stylesheet" href="./Quiz.css">
+    <link rel="stylesheet" href="../css/Quiz.css">
     <link rel="icon" href="../assets/Images/12.png" type="image/png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
@@ -25,7 +28,7 @@
 
     <div class="quiz_box">
         <header>
-            <div class="title">Awesome Quiz Application</div>
+            <div class="title">CP Club - Daily Quiz</div>
             <div class="timer">
                 <div class="time_left_txt">Time Taken</div>
                 <div class="timer_sec">00</div>
@@ -33,13 +36,18 @@
             <div class="time_line"></div>
         </header>
         <section>
-            <div class="que_text"></div>
-            <div class="option_list"></div>
-        </section>
-        <footer>
+            <form id="quiz_form" method="POST" action="insert_responses.php">
+                <div class="que_text"></div>
+                <div class="option_list"></div>
+                <input type="hidden" name="response" id="response_input"> <!-- Hidden input to store the user's response -->
+                <input type="hidden" name="time_taken" id="time_taken_input"> <!-- Hidden input to store the time taken -->
+                <footer>
             <div class="total_que"></div>
-            <button class="next_btn">Submit</button>
+            <button type="submit" class="next_btn">Submit</button>
         </footer>
+            </form>
+        </section>
+        
     </div>
 
     <div class="result_box">
@@ -51,20 +59,21 @@
     </div>
 
     <?php
-    require("../includes/dbh.inc.php");
-    $today = date("Y-m-d");
-    $sql = "SELECT * FROM `questions` WHERE Show_Date = '$today'";
-    $result = mysqli_query($link, $sql);
+require("../includes/dbh.inc.php");
+$today = date("Y-m-d");
+$sql = "SELECT * FROM `questions` WHERE Show_Date = :today";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':today', $today);
+$stmt->execute();
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+if ($row) {
+    $jsonData = json_encode($row);
+} else {
+    $jsonData = json_encode((object)[]);
+}
+?>
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $jsonData = json_encode($row);
-    } else {
-        $jsonData = json_encode((object)[]);
-    }
-
-    ?> ;
     <script>
         let questions = JSON.parse(JSON.stringify(<?php echo $jsonData ?>));
         const start_btn = document.querySelector(".start_btn button");
@@ -172,6 +181,17 @@
                 option_list.children[i].classList.add("disabled");
             }
             next_btn.classList.add("show");
+
+           
+    // Your existing logic to determine user's response and time taken...
+
+    // Update hidden input fields with user's response and time taken
+    document.getElementById("response_input").value = userAns;
+    document.getElementById("time_taken_input").value = timeCount.textContent;
+
+
+
+
         }
 
         function showResult() {
