@@ -84,19 +84,12 @@ body{
     max-width:7%;
 } */
 
-<<<<<<< HEAD
-/* .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-} */
-=======
+
 .container {
-    max-width: 800px;
+    width: 150%;
     margin: 0 auto;
     padding: 20px;
 }
->>>>>>> cabc5b5b4cf9d06471ebd148ea6407c923a171aa
 
 .events-container {
     display: flex;
@@ -138,13 +131,5 @@ button {
 }
 
 button:hover {
-<<<<<<< HEAD
     background-color: #0056b3;
 }
-
-        
-      
-=======
-    background-color: #0056b3;
-}
->>>>>>> cabc5b5b4cf9d06471ebd148ea6407c923a171aa
